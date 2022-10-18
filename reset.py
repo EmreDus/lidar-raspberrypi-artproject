@@ -2,33 +2,12 @@ import minimalmodbus
 import serial
 from curses import baudrate
 
+instrument = minimalmodbus.Instrument("/dev/ttyUSB_MODBUS",1,mode="rtu",debug=False)
+instrument.serial.baudrate = 115200
+instrument.serial.bytesize = 8
+instrument.serial.parity   = serial.PARITY_NONE
+instrument.serial.stopbits = 1
 
-def com_modbus():
-    
-    try:
-        instrument = minimalmodbus.Instrument("/dev/ttyUSB2",1,mode="rtu",debug=False)
-        instrument.serial.baudrate = 115200         # Baud
-        instrument.serial.bytesize = 8
-        instrument.serial.parity   = serial.PARITY_NONE
-        instrument.serial.stopbits = 1
-    except:
-        try:
-            instrument = minimalmodbus.Instrument("/dev/ttyUSB1",1,mode="rtu",debug=False)
-            instrument.serial.baudrate = 115200         # Baud
-            instrument.serial.bytesize = 8
-            instrument.serial.parity   = serial.PARITY_NONE
-            instrument.serial.stopbits = 1
-        except:
-            instrument = minimalmodbus.Instrument("/dev/ttyUSB2",1,mode="rtu",debug=False)
-            instrument.serial.baudrate = 115200         # Baud
-            instrument.serial.bytesize = 8
-            instrument.serial.parity   = serial.PARITY_NONE
-            instrument.serial.stopbits = 1
-    
-    return instrument
-        
-
-instrument = com_modbus()
 
 inp = input("For reset the system press 'r' and then enter (if not just press enter): ")
 
