@@ -6,7 +6,7 @@ iki usb için çalıştır idProduct ve idvendor değerlerini not al
 
 sudo nano /etc/udev/rules.d/10-usb-serial.rules
 SUBSYSTEM=="tty", ATTRS{idProduct}=="ea60", ATTRS{idVendor}=="10c4", SYMLINK+="ttyUSB_LIDAR"
-SUBSYSTEM=="tty", ATTRS{idProduct}=="ea60", ATTRS{idVendor}=="10c4", SYMLINK+="ttyUSB_LIDAR"
+SUBSYSTEM=="tty", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", SYMLINK+="ttyUSB_MODBUS"
 
 bunları usbye uygun idProduct ve idVendor değerlerini ekleyerek ctrl+x ile çık kaydet
 
