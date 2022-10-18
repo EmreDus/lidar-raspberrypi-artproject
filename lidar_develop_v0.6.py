@@ -281,13 +281,17 @@ while(1):
                     #print("new angle: ", mirror_list[len(mirror_list)-1])
                     mirror_angle = mirror_list[len(mirror_list)-1]
             
+            
             mirror_angle = int(mirror_angle)
+            
+            
             if mirror_angle < 180:
                 mirror_angle_last = mirror_angle + 180
                 
             if mirror_angle > 180:
                 mirror_angle_last = mirror_angle - 180
                 
+            
             # PLC mirror stopped info:
             mirror_stopped = instrument.read_register(40, 0, 3, False) # registeraddress, no of decimal, func code: 3-4, singed=False)
             print("Read Register:" ,mirror_stopped)
@@ -299,8 +303,8 @@ while(1):
                 print("motor dur")
                 instrument.write_register(0, 2, 1, 16, False)
                 print("mirror_angle", mirror_angle_last)
-                instrument.write_register(10, mirror_angle_last, 0, 16, False)
-                instrument.write_register(50, mirror_angle, 0, 16, False)
+                instrument.write_register(10, mirror_angle, 0, 16, False)
+                instrument.write_register(50, mirror_angle_last, 0, 16, False)
                 flag_mirror = True
                 
             if (true_count > 0) and (flag_mirror == False):        
