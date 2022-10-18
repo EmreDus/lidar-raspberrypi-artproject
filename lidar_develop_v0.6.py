@@ -25,23 +25,8 @@ import minimalmodbus
 import serial
 import time
 
-
-'''
-lidar = RPLidar('/dev/ttyUSB_LIDAR', baudrate=256000)
-lidar.stop_motor()
-lidar.stop()
-lidar._motor_speed = 200
-
-
-instrument = minimalmodbus.Instrument("/dev/ttyUSB_MODBUS",1,mode="rtu",debug=False)
-instrument.serial.baudrate = 115200
-instrument.serial.bytesize = 8
-instrument.serial.parity   = serial.PARITY_NONE
-instrument.serial.stopbits = 1
-'''
-
-nearRange = 200
-farRange = 400
+nearRange = 300
+farRange = 1000
 
 fadeIn = 6
 fadeOut = 10
