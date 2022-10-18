@@ -1,0 +1,31 @@
+dmesg | grep ttyUSB
+usb 1-1.2 usb 1-1.1 gibi değerleri al
+
+udevadm info --name=/dev/ttyUSB0 --attribute-walk
+iki usb için çalıştır idProduct ve idvendor değerlerini not al
+
+sudo nano /etc/udev/rules.d/10-usb-serial.rules
+SUBSYSTEM=="tty", ATTRS{idProduct}=="ea60", ATTRS{idVendor}=="10c4", SYMLINK+="ttyUSB_LIDAR"
+SUBSYSTEM=="tty", ATTRS{idProduct}=="ea60", ATTRS{idVendor}=="10c4", SYMLINK+="ttyUSB_LIDAR"
+
+bunları usbye uygun idProduct ve idVendor değerlerini ekleyerek ctrl+x ile çık kaydet
+
+sudo udevadm trigger 
+ile aktif et
+
+ls /dev/ttyUSB
+ile kontrol et
+
+
+
+USB0 usb 1-1.2 = lidar
+ATTRS{idProduct}=="ea60"
+ATTRS{idVendor}=="10c4"
+SUBSYSTEM=="tty", ATTRS{idProduct}=="ea60", ATTRS{idVendor}=="10c4", SYMLINK+="ttyUSB_LIDAR"
+
+
+
+USB1 usb 1-1.1 = modbus
+ATTRS{idProduct}=="6001"
+ATTRS{idVendor}=="0403"
+SUBSYSTEM=="tty", ATTRS{idProduct}=="6001", ATTRS{idVendor}=="0403", SYMLINK+="ttyUSB_MODBUS"
