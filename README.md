@@ -16,8 +16,8 @@ This repository contains the Raspberry Pi source code developed for the project.
 
 ## Getting Started
 
-1. git clone https://github.com/EmreDus/lidar-vol2.git
-2. cd lidar-vol2
+1. git clone https://github.com/EmreDus/lidar-raspberrypi-artproject.git
+2. cd lidar-raspberrypi-artproject
 3. sudo chmod +x install.sh
 4. ./install.sh
 
